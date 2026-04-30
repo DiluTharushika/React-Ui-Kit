@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "./components/Button/Button";
 import { Input } from "./components/Input/Input";
+import { Modal } from "./components/Modal/Modal";
 
 function App() {
   const [name, setName] = useState("");
   const [error, setError] = useState<string | undefined>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = () => {
     if (!name.trim()) {
@@ -12,7 +14,11 @@ function App() {
       return;
     }
     setError(undefined);
-    alert(`Hello, ${name}!`);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -28,8 +34,22 @@ function App() {
       />
 
       <Button variant="primary" onClick={handleSubmit}>
-        Say Hello
+        Open Greeting Modal
       </Button>
+
+      <div style={{ marginTop: "1.5rem" }}>
+        <Button variant="secondary" onClick={() => alert("Secondary button!")}>
+          Secondary Button
+        </Button>
+      </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        title="Greeting"
+        onClose={handleCloseModal}
+      >
+        <p>Hello, {name || "friend"}!</p>
+      </Modal>
     </div>
   );
 }
