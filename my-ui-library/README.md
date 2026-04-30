@@ -14,6 +14,7 @@ A small React + TypeScript UI component library I am building to practice creati
 - `Button` – primary / secondary variants
 - `Input` – optional label and error message
 - `Modal` – basic dialog overlay
+- `Card` – simple container with optional title
 
 ## Development
 
