@@ -4,12 +4,28 @@ import { Button } from "./Button";
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Primary and secondary buttons used throughout the UI kit. Supports all standard button props.",
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: { type: "radio" },
       options: ["primary", "secondary"],
+      description: "Visual style of the button",
     },
-    onClick: { action: "clicked" },
+    children: {
+      control: "text",
+      description: "Button label",
+    },
+    onClick: {
+      action: "clicked",
+      description: "Click handler",
+    },
   },
 };
 
