@@ -3,3 +3,4 @@ export * from "./Input/Input";
 export * from "./Modal/Modal";
 export * from "./Card/Card";
 export * from "./Checkbox/Checkbox";
+export * from "./Badge/Badge";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Input, Modal, Card, Checkbox } from "./index";
+import { Button, Input, Modal, Card, Checkbox,Badge } from "./index";
 
 function App() {
   const [name, setName] = useState("");
