@@ -21,44 +21,45 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "400px", margin: "0 auto" }}>
-      <Card title="React UI Kit Demo">
-        <Input
-          label="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
-          error={error}
-        />
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <div className="w-full max-w-md space-y-4">
+        <h1 className="text-2xl font-bold text-slate-900">React UI Kit</h1>
 
-        <div style={{ marginTop: "1rem" }}>
-          <Checkbox
-            label="Subscribe to newsletter"
-            checked={subscribe}
-            onChange={(e) => setSubscribe(e.target.checked)}
+        <Card title="Demo">
+          <Input
+            label="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+            error={error}
           />
-        </div>
 
-        <div style={{ marginTop: "1rem" }}>
-          <Button variant="primary" onClick={handleSubmit}>
-            Open Greeting Modal
-          </Button>
-        </div>
+          <div className="mt-2">
+            <Checkbox
+              label="Subscribe to newsletter"
+              checked={subscribe}
+              onChange={(e) => setSubscribe(e.target.checked)}
+            />
+          </div>
 
-        <div style={{ marginTop: "1rem" }}>
-          <Button
-            variant="secondary"
-            onClick={() => alert("Secondary button!")}
-          >
-            Secondary Button
-          </Button>
-        </div>
-      </Card>
+          <div className="mt-4 space-x-2">
+            <Button variant="primary" onClick={handleSubmit}>
+              Open Greeting Modal
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => alert("Secondary button!")}
+            >
+              Secondary
+            </Button>
+          </div>
+        </Card>
 
-      <Modal isOpen={isModalOpen} title="Greeting" onClose={handleCloseModal}>
-        <p>Hello, {name || "friend"}!</p>
-        {subscribe && <p>Thanks for subscribing!</p>}
-      </Modal>
+        <Modal isOpen={isModalOpen} title="Greeting" onClose={handleCloseModal}>
+          <p>Hello, {name || "friend"}!</p>
+          {subscribe && <p className="mt-2">Thanks for subscribing!</p>}
+        </Modal>
+      </div>
     </div>
   );
 }

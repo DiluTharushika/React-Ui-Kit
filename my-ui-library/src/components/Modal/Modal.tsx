@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button/Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -17,55 +18,23 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        backgroundColor: "rgba(0,0,0,0.4)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: 1000,
-      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
       onClick={onClose}
     >
       <div
-        style={{
-          background: "white",
-          borderRadius: "8px",
-          padding: "1.5rem",
-          minWidth: "300px",
-          maxWidth: "90%",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-        }}
+        className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {title && (
-          <div
-            style={{
-              marginBottom: "1rem",
-              fontWeight: 600,
-              fontSize: "1.1rem",
-            }}
-          >
+          <h3 className="mb-4 text-lg font-semibold text-slate-900">
             {title}
-          </div>
+          </h3>
         )}
-
-        <div style={{ marginBottom: "1rem" }}>{children}</div>
-
-        <div style={{ textAlign: "right" }}>
-          <button
-            onClick={onClose}
-            style={{
-              padding: "0.4rem 0.8rem",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              background: "#f5f5f5",
-              cursor: "pointer",
-            }}
-          >
+        <div className="mb-4 text-sm text-slate-700">{children}</div>
+        <div className="flex justify-end">
+          <Button variant="secondary" onClick={onClose}>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>
