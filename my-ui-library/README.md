@@ -1,27 +1,23 @@
 # My UI Library
 
-A small React + TypeScript UI component library I am building to learn how to create reusable components.
+A small React + TypeScript UI component library I am building to practice creating reusable components.
 
 ## Tech Stack
 
 - React
 - TypeScript
 - Vite
+- Storybook
 
-## Components (so far)
+## Components
 
-- Button
-- (more coming soon: Input, Modal, ...)
+- `Button` – primary / secondary variants
+- `Input` – optional label and error message
+- `Modal` – basic dialog overlay
 
-## Getting Started
+## Development
 
 ```bash
-# Clone the repo
-git clone https://github.com/<your-username>/my-ui-library.git
-cd my-ui-library
-
-# Install dependencies
 npm install
-
-# Run dev server
-npm run dev
+npm run dev       # run example app
+npm run storybook # open component playground

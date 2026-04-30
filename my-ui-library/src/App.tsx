@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "./components/Button/Button";
-import { Input } from "./components/Input/Input";
-import { Modal } from "./components/Modal/Modal";
-
+import { Button, Input, Modal } from "./index";
 function App() {
   const [name, setName] = useState("");
   const [error, setError] = useState<string | undefined>();
