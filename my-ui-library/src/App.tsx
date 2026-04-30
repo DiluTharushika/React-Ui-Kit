@@ -1,22 +1,35 @@
-
+import React, { useState } from "react";
 import { Button } from "./components/Button/Button";
+import { Input } from "./components/Input/Input";
 
 function App() {
+  const [name, setName] = useState("");
+  const [error, setError] = useState<string | undefined>();
+
+  const handleSubmit = () => {
+    if (!name.trim()) {
+      setError("Name is required");
+      return;
+    }
+    setError(undefined);
+    alert(`Hello, ${name}!`);
+  };
+
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+    <div style={{ padding: "2rem", maxWidth: "400px", margin: "0 auto" }}>
       <h1>My UI Library</h1>
 
-      <div style={{ marginTop: "1rem" }}>
-        <Button variant="primary" onClick={() => alert("Primary clicked")}>
-          Primary Button
-        </Button>
-      </div>
+      <Input
+        label="Your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
+        error={error}
+      />
 
-      <div style={{ marginTop: "1rem" }}>
-        <Button variant="secondary" onClick={() => alert("Secondary clicked")}>
-          Secondary Button
-        </Button>
-      </div>
+      <Button variant="primary" onClick={handleSubmit}>
+        Say Hello
+      </Button>
     </div>
   );
 }
